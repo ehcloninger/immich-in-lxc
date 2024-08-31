@@ -215,6 +215,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
 
+NOTE: At any time, if you log out of the `immich` user shell, you will need to manually execute the previous block or make sure that `NVM_DIR` is set using
+
+```bash
+echo $NVM_DIR
+```
+
 Now, download and install Node.js
 
 ```bash
