@@ -206,9 +206,18 @@ After change to the Immich user,
 ```bash
 # installs NVM (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
 
-# Logout and login to reload the terminal so that nvm is available
-# download and install Node.js
+Logout and login to reload the terminal so that nvm is available. Or, issue these commands in your existing shell.
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+```
+
+Now, download and install Node.js
+
+```bash
 nvm install 20
 
 # verifies the right Node.js version is in the environment
