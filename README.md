@@ -181,6 +181,7 @@ Create a Immich user, if you already done so in the above optional section, you 
 ```bash
 useradd -m immich
 chsh immich # Optional: Change the default shell the immich user is using. Typically to /bin/bash
+sudo adduser immich sudo # In order for immich user to issue post-install.sh command
 ```
 
 After creating the user, we should first install node.js for the user, Immich.
@@ -296,7 +297,7 @@ Lastly, we need to review and modify the runtime.env that is inside `INSTALL_DIR
 
 #### Post install script
 
-The post install script will copy the systemd service files to proper location (and overwrite the original ones), assuming one is using Ubuntu, or something similar. Additionally, it creates a folder for log at `/var/log/`. Both operation requires `sudo/root` privilege, so make sure to review the script before proceeding.
+The post install script will copy the systemd service files to proper location (and overwrite the original ones), assuming one is using Ubuntu, or something similar. Additionally, it creates a folder for log at `/var/log/`. Both operation requires `sudo/root` privilege, so make sure to review the script before proceeding. 
 
 ```bash
 ./post-install.sh
@@ -315,7 +316,7 @@ systemctl start immich-web
 
 The default setting exposes the Immich web server on port `3001` on all available address. For security reason, one should put a reverse proxy, e.g. Nginx, HAProxy, in front of the immich instance and add SSL to it.
 
-To make the service persistent and start after reboot,
+To make the service persistent and start after reboot. You may need to use `sudo` if you get an error message.
 
 ```bash
 systemctl enable immich-microservices && \
