@@ -307,6 +307,8 @@ Then, modify the service file to make sure every path name is spelled correctly.
 
 After that, we are now ready to start our Immich instance!
 
+**NOTE:** If you receive an error stating `Interactive authentication required`, issue the commands separately as root/sudo.
+
 ```bash
 systemctl daemon-reload && \
 systemctl start immich-microservices && \
@@ -316,7 +318,7 @@ systemctl start immich-web
 
 The default setting exposes the Immich web server on port `3001` on all available address. For security reason, one should put a reverse proxy, e.g. Nginx, HAProxy, in front of the immich instance and add SSL to it.
 
-To make the service persistent and start after reboot. You may need to use `sudo` if you get an error message.
+To make the service persistent and start after reboot.
 
 ```bash
 systemctl enable immich-microservices && \
